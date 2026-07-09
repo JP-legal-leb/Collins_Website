@@ -40,6 +40,13 @@
   height: 76px;
 }
 
+.site-header__brand {
+  display: inline-flex;
+  align-items: center;
+  flex: none;
+  min-width: 0;
+}
+
 .site-nav {
   display: none;
   align-items: center;
