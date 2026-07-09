@@ -1,0 +1,208 @@
+/* Tiers */
+.tiers__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+  align-items: stretch;
+
+  @media (min-width: 1000px) { grid-template-columns: repeat(3, 1fr); }
+}
+
+.stier {
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  scroll-margin-top: 110px;
+  transition: transform 0.4s var(--ease), box-shadow 0.4s var(--ease);
+}
+.stier:hover { transform: none; box-shadow: none; border-color: var(--ink); }
+
+.stier--featured {
+  background: var(--paper-2);
+  border-color: var(--ink);
+  color: var(--text);
+  .stier__step { color: var(--brand-strong); }
+  .stier__name { color: var(--ink); }
+  .stier__headline,
+  .stier__positioning,
+  .stier__target,
+  .stier__inherit,
+  .stier__buyer { color: var(--text-muted); }
+  .stier__target span,
+  .stier__value-label { color: var(--brand-strong); }
+  .stier__group-label,
+  .stier__buyer span { color: var(--ink); }
+  .stier__body li,
+  .stier__value li { color: var(--text); }
+  .stier__body svg { color: var(--brand); }
+  .stier__foot,
+  .stier__body { border-top-color: var(--line); }
+}
+
+.stier__head { position: relative; }
+.stier__badge {
+  position: absolute;
+  top: -0.4rem;
+  right: -0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--brand);
+  padding: 0.32rem 0.7rem;
+  border-radius: var(--radius-sm);
+}
+.stier__step {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-strong);
+}
+.stier__name { margin-top: 0.6rem; font-size: 2rem; }
+.stier__headline { color: var(--text-muted); font-family: var(--font-body); font-weight: 500; margin-top: 0.2rem; }
+.stier__positioning { margin-top: 1rem; font-style: italic; color: var(--text-muted); }
+.stier__target {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  span { color: var(--brand-strong); font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.72rem; }
+}
+
+.stier__body {
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+  flex: 1 0 auto;
+}
+.stier--featured .stier__body { border-top-color: var(--line-dark); }
+.stier__inherit { font-weight: 600; margin-bottom: 1rem; color: var(--text); }
+.stier__group + .stier__group { margin-top: 1.3rem; }
+.stier__group-label {
+  font-size: 0.92rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.7rem;
+}
+.stier__body ul { display: flex; flex-direction: column; gap: 0.6rem; }
+.stier__body li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.94rem;
+  color: var(--text);
+}
+.stier__body svg { color: var(--brand); flex: none; margin-top: 2px; }
+
+.stier__foot {
+  margin-top: 1.6rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--line);
+}
+.stier__value-label {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-strong);
+}
+.stier__value ul { margin-top: 0.7rem; display: flex; flex-direction: column; gap: 0.4rem; }
+.stier__value li { font-size: 0.94rem; color: var(--text); }
+.stier__buyer {
+  margin-top: 1.2rem;
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  span { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.3rem; }
+}
+.stier__cta { margin-top: 1.6rem; width: 100%; justify-content: center; }
+
+/* Commercial logic table */
+.logic { background: var(--paper-2); }
+.logic-table {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  overflow: hidden;
+  background: var(--paper);
+}
+.logic-table__head,
+.logic-table__row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.3rem;
+  padding: 1.2rem 1.4rem;
+
+  @media (min-width: 720px) {
+    grid-template-columns: 0.8fr 1.2fr 1.4fr;
+    gap: 1rem;
+    align-items: center;
+  }
+}
+.logic-table__head {
+  background: var(--brand-tint);
+  color: var(--brand-strong);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.logic-table__row { border-top: 1px solid var(--line); }
+.logic-table__row:first-of-type { border-top: none; }
+.logic-table__stage {
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--brand-strong);
+  font-size: 1.1rem;
+}
+.logic-table__need { font-size: 1.05rem; color: var(--ink); font-family: var(--font-display); }
+.logic-table__trigger { color: var(--text-muted); font-size: 0.95rem; }
+
+/* Extras */
+.extras__grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+
+  @media (min-width: 820px) { grid-template-columns: 1fr 1fr; }
+}
+.extras__card {
+  border: 1px solid var(--line);
+  border-radius: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  h3 { margin-top: 0.9rem; }
+}
+.extras__list { margin-top: 1.6rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.extras__list li {
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+  font-size: 1.02rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--line);
+}
+.extras__list li:last-child { border-bottom: none; padding-bottom: 0; }
+.extras__list svg { color: var(--brand); flex: none; }
+
+.extras__card--pricing {
+  background: var(--brand-tint);
+  border-color: var(--line);
+  color: var(--text);
+  h3 { color: var(--ink); }
+}
+.pricing__list { margin-top: 1.6rem; display: flex; flex-direction: column; }
+.pricing__list li {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+
+  @media (min-width: 480px) { flex-direction: row; justify-content: space-between; align-items: baseline; gap: 1rem; }
+}
+.pricing__list li:last-child { border-bottom: none; }
+.pricing__tier { font-family: var(--font-display); font-weight: 600; font-size: 1.15rem; color: var(--ink); }
+.pricing__model { color: var(--brand-strong); font-size: 0.98rem; }

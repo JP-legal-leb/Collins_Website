@@ -1,0 +1,109 @@
+<app-page-hero
+  eyebrow="About us"
+  title="Global standards. Local expertise. Practical advice."
+  subtitle="With deep knowledge of Saudi regulations and close partnerships with local authorities like ZATCA and MoC, we help businesses stay ahead of compliance shifts while thinking bigger about their future."
+/>
+
+<!-- Story -->
+<section class="section">
+  <div class="container story">
+    <div class="story__intro" appReveal>
+      <span class="eyebrow">Our story</span>
+      <h2 class="display-3">
+        Headquartered in the UK and active across the UAE, our localized expertise and global
+        standards empower businesses to thrive in a competitive and evolving market.
+      </h2>
+    </div>
+    <div class="story__body" appReveal>
+      <p>
+        Collins Advisory Group specializes in providing expert guidance on regulatory compliance,
+        financial management, and strategic planning tailored to your business needs. We combine an
+        international pedigree with on-the-ground presence in the Gulf — so clients get global
+        standards delivered with local nuance.
+      </p>
+      <p class="story__mission">
+        <span>Our mission</span>
+        {{ mission }}
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<section class="section--tight about-stats">
+  <div class="container about-stats__grid" appReveal>
+    @for (stat of stats; track stat.label) {
+      <div class="about-stat">
+        <span class="about-stat__value">{{ stat.value }}</span>
+        <span class="about-stat__label">{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>
+
+<!-- Principles -->
+<section class="section principles">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <div>
+        <span class="eyebrow">What we stand for</span>
+        <h2 class="display-2">Principles that guide every engagement.</h2>
+      </div>
+    </div>
+    <div class="principles__grid">
+      @for (p of principles; track p.title; let i = $index) {
+        <article class="principle" [appReveal]="i * 80">
+          <span class="principle__num">0{{ i + 1 }}</span>
+          <h3 class="principle__title">{{ p.title }}</h3>
+          <p class="principle__body">{{ p.body }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Why us -->
+<section class="section why-about">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <div>
+        <span class="eyebrow">Why us</span>
+        <h2 class="display-2">Integrated support, from setup to strategic finance.</h2>
+      </div>
+    </div>
+    <div class="why-about__grid">
+      @for (item of whyUs; track item.title; let i = $index) {
+        <article class="why-about__item" [appReveal]="i * 80">
+          <h3 class="why-about__title">{{ item.title }}</h3>
+          <p class="why-about__body">{{ item.body }}</p>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Presence -->
+<section class="section presence">
+  <div class="container presence__inner" appReveal>
+    <div>
+      <span class="eyebrow">Our footprint</span>
+      <h2 class="display-2 presence__title">Three markets. One standard of excellence.</h2>
+    </div>
+    <div class="presence__regions">
+      @for (region of company.regions; track region) {
+        <div class="presence__region">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 21s7-6.4 7-11a7 7 0 1 0-14 0c0 4.6 7 11 7 11z" stroke="currentColor" stroke-width="1.8" />
+            <circle cx="12" cy="10" r="2.6" stroke="currentColor" stroke-width="1.8" />
+          </svg>
+          {{ region }}
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<app-cta-band
+  title="Let's talk about your next stage."
+  subtitle="Whether you need clean books or a strategic CFO office, we meet you where you are."
+/>

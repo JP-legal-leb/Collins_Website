@@ -1,0 +1,42 @@
+<app-page-hero
+  eyebrow="Services"
+  title="Practical finance support for growing companies."
+  [subtitle]="intro"
+/>
+
+<section class="section suite">
+  <div class="container">
+    @for (item of suite; track item.title; let i = $index) {
+      <article class="suite-row" [class.suite-row--alt]="i % 2 === 1" [id]="'svc-' + item.index" appReveal>
+        <div class="suite-row__aside">
+          <span class="suite-row__index">{{ item.index }}</span>
+          <h2 class="suite-row__title">{{ item.title }}</h2>
+          <p class="suite-row__tagline">{{ item.tagline }}</p>
+        </div>
+
+        <div class="suite-row__main">
+          <ul class="suite-row__points">
+            @for (point of item.points; track point) {
+              <li>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                  <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                {{ point }}
+              </li>
+            }
+          </ul>
+          <p class="suite-row__outcome">
+            <span>Outcome</span>
+            {{ item.outcome }}
+          </p>
+        </div>
+      </article>
+    }
+  </div>
+</section>
+
+<app-cta-band
+  title="Not sure which capability you need first?"
+  subtitle="We'll assess where your finances are today and recommend the right starting point."
+  primaryLabel="Request an assessment"
+/>

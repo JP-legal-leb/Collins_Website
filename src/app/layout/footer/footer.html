@@ -1,0 +1,51 @@
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__top">
+      <div class="site-footer__brand">
+        <app-logo tone="default" />
+        <p class="site-footer__promise">{{ company.promise }}.</p>
+        <p class="site-footer__desc">
+          A globally connected advisory firm with a strong presence in the UK, UAE and Saudi Arabia.
+        </p>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">Explore</h4>
+        <ul>
+          @for (item of nav; track item.path) {
+            <li><a [routerLink]="item.path">{{ item.label }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">Offices</h4>
+        <ul>
+          @for (region of company.regions; track region) {
+            <li>{{ region }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="site-footer__col">
+        <h4 class="site-footer__heading">Get in touch</h4>
+        <ul>
+          <li><a [href]="'mailto:' + company.email">{{ company.email }}</a></li>
+          @for (phone of company.phones; track phone) {
+            <li><a [href]="'tel:' + phone.split(' ').join('')">{{ phone }}</a></li>
+          }
+          <li>
+            <a [href]="company.linkedinUrl" target="_blank" rel="noopener noreferrer">
+              LinkedIn ↗
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="site-footer__bottom">
+      <span>© {{ year }} {{ company.name }}. All rights reserved.</span>
+      <span>{{ company.tagline }}</span>
+    </div>
+  </div>
+</footer>

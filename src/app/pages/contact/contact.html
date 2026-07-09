@@ -1,0 +1,94 @@
+<app-page-hero
+  eyebrow="Contact us"
+  title="Speak with a Collins advisor."
+  subtitle="For general inquiries, partnership opportunities and service requests. We aim to respond to all emails within 24 hours."
+/>
+
+<section class="section contact">
+  <div class="container contact__grid">
+    <!-- Details -->
+    <aside class="contact__aside" appReveal>
+      <div class="contact__detail">
+        <span class="contact__label">Email</span>
+        <a [href]="'mailto:' + company.email" class="contact__value">{{ company.email }}</a>
+      </div>
+      <div class="contact__detail">
+        <span class="contact__label">Phone</span>
+        @for (phone of company.phones; track phone) {
+          <a [href]="'tel:' + phone.split(' ').join('')" class="contact__value">{{ phone }}</a>
+        }
+      </div>
+      <div class="contact__detail">
+        <span class="contact__label">Offices</span>
+        @for (region of company.regions; track region) {
+          <span class="contact__value contact__value--static">{{ region }}</span>
+        }
+      </div>
+      <div class="contact__detail">
+        <span class="contact__label">Connect</span>
+        <a [href]="company.linkedinUrl" target="_blank" rel="noopener noreferrer" class="contact__value">
+          LinkedIn ↗
+        </a>
+      </div>
+    </aside>
+
+    <!-- Form -->
+    <div class="contact__form-wrap" appReveal>
+      @if (submitted() && form.valid) {
+        <div class="contact__success" role="status">
+          <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.6" />
+            <path d="M8 12.5l2.5 2.5L16 9" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          <h3>Thanks — your email is ready to send.</h3>
+          <p>Your mail client should have opened with your message pre-filled. If not, reach us directly at {{ company.email }}.</p>
+        </div>
+      } @else {
+        <form [formGroup]="form" (ngSubmit)="submit()" novalidate>
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" type="text" formControlName="name" autocomplete="name" [class.is-invalid]="invalid('name')" />
+            @if (invalid('name')) { <span class="field__error">Please enter your name.</span> }
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" type="email" formControlName="email" autocomplete="email" [class.is-invalid]="invalid('email')" />
+              @if (invalid('email')) { <span class="field__error">Enter a valid email address.</span> }
+            </div>
+            <div class="field">
+              <label for="company">Company <span>(optional)</span></label>
+              <input id="company" type="text" formControlName="company" autocomplete="organization" />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="interest">I'm interested in</label>
+            <select id="interest" formControlName="interest">
+              @for (option of interests; track option) {
+                <option [value]="option">{{ option }}</option>
+              }
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">How can we help?</label>
+            <textarea id="message" rows="5" formControlName="message" [class.is-invalid]="invalid('message')"></textarea>
+            @if (invalid('message')) { <span class="field__error">Tell us a little about your needs (10+ characters).</span> }
+          </div>
+
+          <button type="submit" class="btn contact__submit">
+            Send message
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <p class="contact__form-note">
+            Opens your email app with a draft to {{ company.email }}. You review and send it from there.
+          </p>
+        </form>
+      }
+    </div>
+  </div>
+</section>

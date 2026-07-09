@@ -1,0 +1,55 @@
+<header class="site-header" [class.is-scrolled]="scrolled()" [class.is-open]="menuOpen()">
+  <div class="container site-header__inner">
+    <a routerLink="/" class="site-header__brand" aria-label="Collins Advisory Group — home" (click)="closeMenu()">
+      <app-logo tone="default" />
+    </a>
+
+    <nav class="site-nav" aria-label="Primary">
+      @for (item of nav; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          class="site-nav__link"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="site-header__actions">
+      <a routerLink="/contact" class="btn site-header__cta">
+        Talk to us
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <button
+        type="button"
+        class="site-header__burger"
+        [attr.aria-expanded]="menuOpen()"
+        aria-label="Toggle navigation menu"
+        (click)="toggleMenu()"
+      >
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" [class.is-open]="menuOpen()">
+    <nav aria-label="Mobile">
+      @for (item of nav; track item.path) {
+        <a
+          [routerLink]="item.path"
+          routerLinkActive="is-active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+          class="mobile-nav__link"
+          (click)="closeMenu()"
+        >
+          {{ item.label }}
+        </a>
+      }
+      <a routerLink="/contact" class="btn mobile-nav__cta" (click)="closeMenu()">Talk to us</a>
+    </nav>
+  </div>
+</header>

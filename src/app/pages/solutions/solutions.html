@@ -1,0 +1,125 @@
+<app-page-hero
+  eyebrow="Solutions"
+  title="Support matched to your stage of growth."
+  subtitle="Start with clean, compliant books and add deeper control, forecasting and CFO advisory as your business becomes more complex."
+/>
+
+<!-- Tiers -->
+<section class="section tiers">
+  <div class="container">
+    <div class="tiers__grid">
+      @for (tier of tiers; track tier.key; let i = $index) {
+        <article
+          class="stier"
+          [class.stier--featured]="tier.featured"
+          [id]="tier.key"
+          [appReveal]="i * 80"
+        >
+          <header class="stier__head">
+            @if (tier.featured) { <span class="stier__badge">Most popular</span> }
+            <span class="stier__step">Tier {{ i + 1 }}</span>
+            <h2 class="stier__name">{{ tier.name }}</h2>
+            <p class="stier__headline">{{ tier.headline }}</p>
+            <p class="stier__positioning">“{{ tier.positioning }}”</p>
+            <p class="stier__target"><span>For</span> {{ tier.target }}</p>
+          </header>
+
+          <div class="stier__body">
+            @if (i > 0) {
+              <p class="stier__inherit">Everything in {{ tiers[i - 1].name }}, plus:</p>
+            }
+            @for (group of tier.groups; track $index) {
+              <div class="stier__group">
+                @if (group.label) { <h3 class="stier__group-label">{{ group.label }}</h3> }
+                <ul>
+                  @for (item of group.items; track item) {
+                    <li>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M20 6L9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                      {{ item }}
+                    </li>
+                  }
+                </ul>
+              </div>
+            }
+          </div>
+
+          <footer class="stier__foot">
+            <div class="stier__value">
+              <span class="stier__value-label">Value delivered</span>
+              <ul>
+                @for (v of tier.value; track v) { <li>{{ v }}</li> }
+              </ul>
+            </div>
+            <p class="stier__buyer"><span>Typical buyer</span> {{ tier.buyer }}</p>
+            <a routerLink="/contact" class="btn stier__cta">Talk about {{ tier.name }}</a>
+          </footer>
+        </article>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Client-stage logic -->
+<section class="section logic">
+  <div class="container">
+    <div class="section-head" appReveal>
+      <div>
+        <span class="eyebrow">How support develops</span>
+        <h2 class="display-2">Each stage answers the finance question that comes next.</h2>
+      </div>
+    </div>
+    <div class="logic-table" appReveal>
+      <div class="logic-table__head">
+        <span>Stage</span><span>Client need</span><span>Natural upsell trigger</span>
+      </div>
+      @for (step of ladder; track step.stage) {
+        <div class="logic-table__row">
+          <span class="logic-table__stage">{{ step.stage }}</span>
+          <span class="logic-table__need">“{{ step.need }}”</span>
+          <span class="logic-table__trigger">{{ step.trigger }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<!-- Add-ons + pricing -->
+<section class="section extras">
+  <div class="container extras__grid">
+    <div class="extras__card" appReveal>
+      <span class="eyebrow">Optional add-ons</span>
+      <h3 class="display-3">Available across all tiers</h3>
+      <ul class="extras__list">
+        @for (addon of addOns; track addon) {
+          <li>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M12 5v14M5 12h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            </svg>
+            {{ addon }}
+          </li>
+        }
+      </ul>
+    </div>
+
+    <div class="extras__card extras__card--pricing" [appReveal]="100">
+      <span class="eyebrow">Simple pricing philosophy</span>
+      <h3 class="display-3">Transparent, scaled to complexity</h3>
+      <ul class="pricing__list">
+        @for (row of pricing; track row.tier) {
+          <li>
+            <span class="pricing__tier">{{ row.tier }}</span>
+            <span class="pricing__model">{{ row.model }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </div>
+</section>
+
+<app-cta-band
+  title="Find the right level of support."
+  subtitle="Tell us where your business is today and we'll recommend the right accounting, control or advisory support."
+  primaryLabel="Book a consultation"
+/>
