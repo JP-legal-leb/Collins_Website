@@ -137,7 +137,7 @@
   padding: 1.2rem 1.4rem;
 
   @media (min-width: 720px) {
-    grid-template-columns: 0.8fr 1.2fr 1.4fr;
+    grid-template-columns: 0.8fr 1.2fr;
     gap: 1rem;
     align-items: center;
   }
@@ -159,7 +159,6 @@
   font-size: 1.1rem;
 }
 .logic-table__need { font-size: 1.05rem; color: var(--ink); font-family: var(--font-display); }
-.logic-table__trigger { color: var(--text-muted); font-size: 0.95rem; }
 
 /* Extras */
 .extras__grid {

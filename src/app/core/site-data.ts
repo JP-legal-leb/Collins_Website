@@ -32,7 +32,6 @@ export interface Tier {
 export interface LadderStep {
   stage: string;
   need: string;
-  trigger: string;
 }
 
 export interface Stat {
@@ -110,6 +109,8 @@ export const CLIENTS: Client[] = [
   { name: 'AM Capital', logo: '/clients/am-capital.png' },
   { name: 'Charisma Group', logo: '/clients/charisma-group.png' },
   { name: 'JBS Jet Business Solutions', logo: '/clients/jbs.png' },
+  { name: 'Telnyx', logo: '/clients/telnyx.png' },
+  { name: 'i6 Group', logo: '/clients/i6-group.png' },
 ];
 
 export const WHO_WE_ARE =
@@ -324,9 +325,9 @@ export const TIERS: Tier[] = [
 ];
 
 export const LADDER: LadderStep[] = [
-  { stage: 'Starter', need: 'Are my books correct?', trigger: 'Growth in revenue or complexity' },
-  { stage: 'Growth', need: 'Do I have enough cash?', trigger: 'Fundraising, debt, expansion' },
-  { stage: 'Strategic CFO', need: 'What is my company worth?', trigger: 'M&A, exit, PE involvement' },
+  { stage: 'Starter', need: 'Are my books correct?' },
+  { stage: 'Growth', need: 'Do I have enough cash?' },
+  { stage: 'Strategic CFO', need: 'What is my company worth?' },
 ];
 
 export const ADD_ONS: string[] = [
