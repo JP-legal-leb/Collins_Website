@@ -55,6 +55,7 @@ export interface PressFeature {
 
 export interface Client {
   name: string;
+  logo: string;
 }
 
 export const COMPANY = {
@@ -91,24 +92,24 @@ export const NAV: NavItem[] = [
 ];
 
 export const CLIENTS: Client[] = [
-  { name: 'Digitalli' },
-  { name: 'Elie Saab' },
-  { name: 'Fermendom' },
-  { name: 'TPM Leading Brands' },
-  { name: 'BAT' },
-  { name: 'GT-AI' },
-  { name: 'G.W.R Consulting' },
-  { name: 'Mirage Travel' },
-  { name: 'Del Ponte' },
-  { name: 'JP Legal' },
-  { name: 'Vidiwell' },
-  { name: 'Berkshire Hathaway' },
-  { name: 'RST Resources Stage Technologies' },
-  { name: 'World House Capital' },
-  { name: 'SBCM' },
-  { name: 'AM Capital' },
-  { name: 'Charisma Group' },
-  { name: 'JBS Jet Business Solutions' },
+  { name: 'Digitalli', logo: '/clients/digitalli.png' },
+  { name: 'Elie Saab', logo: '/clients/elie-saab.png' },
+  { name: 'Fermendom', logo: '/clients/fermendom.png' },
+  { name: 'TPM Leading Brands', logo: '/clients/tpm.png' },
+  { name: 'BAT', logo: '/clients/bat.png' },
+  { name: 'GT-AI', logo: '/clients/gt-ai.png' },
+  { name: 'G.W.R Consulting', logo: '/clients/gwr-consulting.png' },
+  { name: 'Mirage Travel', logo: '/clients/mirage-travel.png' },
+  { name: 'Del Ponte', logo: '/clients/del-ponte.png' },
+  { name: 'JP Legal', logo: '/clients/jp-legal.png' },
+  { name: 'Vidiwell', logo: '/clients/vidiwell.png' },
+  { name: 'Berkshire Hathaway', logo: '/clients/berkshire-hathaway.png' },
+  { name: 'RST Resources Stage Technologies', logo: '/clients/rst.png' },
+  { name: 'World House Capital', logo: '/clients/world-house-capital.png' },
+  { name: 'SBCM', logo: '/clients/sbcm.png' },
+  { name: 'AM Capital', logo: '/clients/am-capital.png' },
+  { name: 'Charisma Group', logo: '/clients/charisma-group.png' },
+  { name: 'JBS Jet Business Solutions', logo: '/clients/jbs.png' },
 ];
 
 export const WHO_WE_ARE =
