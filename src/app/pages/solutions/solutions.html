@@ -72,12 +72,13 @@
     </div>
     <div class="logic-table" appReveal>
       <div class="logic-table__head">
-        <span>Stage</span><span>Client need</span>
+        <span>Stage</span><span>Client need</span><span>Natural trigger</span>
       </div>
       @for (step of ladder; track step.stage) {
         <div class="logic-table__row">
           <span class="logic-table__stage">{{ step.stage }}</span>
           <span class="logic-table__need">“{{ step.need }}”</span>
+          <span class="logic-table__trigger">{{ step.trigger }}</span>
         </div>
       }
     </div>
