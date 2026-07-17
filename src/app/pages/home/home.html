@@ -66,8 +66,8 @@
 
     <div class="clients__grid" appReveal>
       @for (client of clients; track client.name) {
-        <div class="client-logo">
-          <img [src]="client.logo" [alt]="client.name" width="160" height="64" loading="lazy" />
+        <div class="client-logo" [attr.title]="client.name">
+          <img [src]="client.logo" [alt]="client.name" width="160" height="56" loading="lazy" decoding="async" />
         </div>
       }
     </div>
